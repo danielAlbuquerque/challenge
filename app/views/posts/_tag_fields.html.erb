@@ -1,0 +1,9 @@
+<p>
+  <label id="lbl-<%=f.__id__%>"> Tag: </label><br />
+  <%= f.text_field :tag, id: "tag-#{f.__id__}" %> 
+  <%= link_to_remove_association "remove", f %>
+</p>
+
+
+
+

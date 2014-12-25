@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+	<thead>
+		<th> <%= t(:title) %> </th>
+		<th> <%= t(:user) %> </th>
+		<th> <%= t(:published_at) %> </th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% @category.posts.each do |post| %>
+		<tr>
+			<td> <%=post.title%> </td>
+			<td> <%=post.user.email%> </td>
+			<td> <%= l(post.created_at) %></td>
+			<td> <%= link_to t(:see), post %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

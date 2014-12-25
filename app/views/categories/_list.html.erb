@@ -1,0 +1,28 @@
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>
+      <%= t('description') %>
+    </th>
+    <th>
+
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |category| %>
+      <tr>
+        <td class="col-sm-9"><%= category.description %></td>
+        <td>
+          <div style="text-align: center;">
+            <div class="btn-group" style="" role="group" aria-label="...">
+              <%= link_to t(:Posts), category, class: "btn btn-primary" %>
+              <%= link_to t(:Edit), edit_category_path(category), class: "btn btn-success" if user_signed_in? %>
+              <%= link_to t(:Destroy), category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if user_signed_in? %>
+            </div>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

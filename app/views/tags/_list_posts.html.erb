@@ -1,0 +1,19 @@
+
+<table class="table table-bordered">
+	<thead>
+		<th> <%= t(:title) %> </th>
+		<th> <%= t(:user) %> </th>
+		<th> <%= t(:published_on) %> </th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% @posts.each do |tag| %>
+		<tr>
+			<td> <%=tag.post.title%> </td>
+			<td> <%=tag.post.user.email%> </td>
+			<td> <%= l(tag.post.created_at) %></td>
+			<td> <%= link_to t(:see), tag.post %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

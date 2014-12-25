@@ -1,0 +1,11 @@
+<h1><%=t(:tags)%></h1>
+
+<b> <%=t(:tag)%>: </b> <%=@tag.tag%>
+
+
+<% if @posts.present? %>
+	<%= render 'list_posts'%>
+<% else %>
+	<div class="alert alert-info">No post found</div>
+<% end %>
+

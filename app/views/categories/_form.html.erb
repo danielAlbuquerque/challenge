@@ -1,0 +1,23 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+      <div class="col-sm-4">
+        <%= f.label t(:category_name) %><br>
+        <%= f.text_field :description, class: "form-control", required: true, maxlength: 35 %>
+      </div>
+  </div>
+  <br />
+  <div class="actions">
+    <%= link_to t(:categories), categories_path, class: "btn btn-danger" %>
+    <button type="submit" class="btn btn-primary"> <%=t(:save)%> </button>
+  </div>
+<% end %>

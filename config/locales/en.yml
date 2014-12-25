@@ -1,0 +1,15 @@
+
+en:
+  hello: "Hi"
+  last_login: "Your last login:"
+  categories: 'Categories'
+  no_category_found: 'No Category Found'
+  new_category: "New Category"
+  edit_categoary: "Edit category"
+  category_name: "Category:"
+  description: 'Description:'
+  published_by: 'Published by'
+  published_ot: 'Published on'
+
+
+

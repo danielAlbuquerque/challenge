@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%=t(:title)%>:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong><%=t(:slug)%>:</strong>
+  <%= @post.slug %>
+</p>
+
+<p>
+  <strong><%=t(:categories)%>:</strong>
+  <table>
+
+  <% @post.categories.each do |c| %>
+    <tr>
+      <td>  <%= link_to c.description, c %> </td>
+    </tr>
+  <% end %>  
+  </table>
+  
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <table>
+    <% @post.tags.each do |t| %>
+      <tr>
+      	<p> <%= link_to t.tag, t %> </p>
+      </tr>
+    <% end %>
+  </table>
+</p>
+
+<p>
+  <strong>Post text:</strong>
+  <%= simple_format @post.post_text %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.email %>
+</p>
+
+<%= link_to 'Back', posts_path, class: "btn btn-primary" %>

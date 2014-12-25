@@ -1,0 +1,9 @@
+<div class="well">
+<h1><%= t('hello') %>! <%= current_user.email %></h1> 
+
+<p>
+	<%= t('last_login') %> <%= l(current_user.last_sign_in_at) %>
+</p>
+
+</div>
+

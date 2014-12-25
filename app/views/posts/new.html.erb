@@ -1,0 +1,72 @@
+<legend> New post </legend>
+
+<%= simple_form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-1">
+        <%= f.label "Título:" %>
+    </div>
+    <div class="col-sm-4">
+        <%= f.text_field :title, class: "form-control", maxlength: 50, required: true %>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+        <select id="post[category_ids][]" multiple="multiple" name="post[category_ids][]" class="form-control" size="10" required> 
+          <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.description %></option>
+          <% end %>  
+        </select>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.simple_fields_for :tags do |builder| %> 
+        <%= render 'tag_fields', f: builder %>
+      <% end %>
+      <%= link_to_add_association 'add item', f, :tags, :class => "btn btn-default" %>
+    </div>
+  </div>
+
+  <hr>
+  
+  <div class="row">
+
+    <div class="col-sm-12">
+      <%= f.label :post_text %><br>
+      <%= f.text_area :post_text, class: "tinymce", rows: 20 %>
+      <%= tinymce %>
+    </div>
+
+  </div>
+
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <br />
+
+  <div class="actions">
+    <%= f.submit "Save post", class: "btn btn-success" %>
+  </div>
+
+
+<% end %>
+
+
+

@@ -1,0 +1,9 @@
+toolbar:
+  - styleselect | bold italic | link image | undo redo
+  - table | fullscreen
+  - alignleft | aligncenter | alignright
+plugins:
+  - table
+  - fullscreen
+  - uploadimage
+

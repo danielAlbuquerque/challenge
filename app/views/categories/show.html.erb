@@ -1,0 +1,22 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @category.description %>
+</p>
+
+
+
+<% if @category.posts.present? %>
+
+	<%= render 'list_posts' %>
+
+<% else %>
+
+    <div class="alert alert-info">No post found for this category</div>
+
+<% end %>
+
+
+<%= link_to "Back", categories_path, class: "btn btn-danger" %>
